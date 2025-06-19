@@ -90,6 +90,62 @@
             100% { transform: translateX(100px) translateY(100px); }
         }
 
+        /* Binary Matrix Background Animation */
+        .binary-matrix {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -3;
+            pointer-events: none;
+            overflow: hidden;
+            opacity: 0.03;
+        }
+
+        .binary-column {
+            position: absolute;
+            top: -100%;
+            width: 15px;
+            color: #00b4ff;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 10px;
+            line-height: 12px;
+            text-shadow: 0 0 3px #00b4ff;
+            white-space: nowrap;
+            animation: binaryFall linear infinite;
+            opacity: 0.8;
+        }
+
+        .binary-column.binary-fast {
+            animation-duration: 3s;
+            opacity: 0.5;
+            color: #0066cc;
+        }
+
+        .binary-column.binary-slow {
+            animation-duration: 8s;
+            opacity: 0.6;
+            color: #003d7a;
+        }
+
+        @keyframes binaryFall {
+            0% {
+                transform: translateY(-100vh);
+                opacity: 0;
+            }
+            5% {
+                opacity: 0.8;
+            }
+            95% {
+                opacity: 0.8;
+            }
+            100% {
+                transform: translateY(100vh);
+                opacity: 0;
+            }
+        }
+
         /* Matrix Rain Effect */
         .matrix-rain {
             position: fixed;
@@ -701,6 +757,9 @@
     </style>
 </head>
 <body>
+    <!-- Binary Matrix Background -->
+    <div class="binary-matrix"></div>
+    
     <!-- Enhanced Cosmic Background -->
     <div class="cosmic-bg"></div>
     
@@ -854,6 +913,61 @@
     </footer>
 
     <script>
+        // Create Binary Matrix Background
+        function createBinaryMatrix() {
+            const binaryContainer = document.querySelector('.binary-matrix');
+            const binaryChars = '01';
+            
+            const screenWidth = window.innerWidth;
+            const columns = Math.floor(screenWidth / 15); // Denser than regular matrix
+            
+            for (let i = 0; i < columns; i++) {
+                const column = document.createElement('div');
+                column.className = 'binary-column';
+                
+                // Add speed variation
+                const speedRand = Math.random();
+                if (speedRand < 0.3) {
+                    column.classList.add('binary-fast');
+                } else if (speedRand > 0.7) {
+                    column.classList.add('binary-slow');
+                }
+                
+                column.style.left = i * 15 + 'px';
+                column.style.animationDelay = Math.random() * 10 + 's';
+                
+                // Create longer binary strings
+                let binaryString = '';
+                const columnHeight = Math.floor(Math.random() * 40) + 20; // Longer columns
+                
+                for (let j = 0; j < columnHeight; j++) {
+                    const char = binaryChars[Math.floor(Math.random() * 2)];
+                    binaryString += char;
+                    if (j < columnHeight - 1) {
+                        binaryString += '<br>';
+                    }
+                }
+                
+                column.innerHTML = binaryString;
+                binaryContainer.appendChild(column);
+                
+                // Randomly update binary values
+                setInterval(() => {
+                    if (Math.random() < 0.05) { // Less frequent updates for subtlety
+                        let newBinaryString = '';
+                        for (let k = 0; k < columnHeight; k++) {
+                            const char = binaryChars[Math.floor(Math.random() * 2)];
+                            newBinaryString += char;
+                            if (k < columnHeight - 1) {
+                                newBinaryString += '<br>';
+                            }
+                        }
+                        column.innerHTML = newBinaryString;
+                    }
+                }, 500); // Slower update rate for background effect
+            }
+        }
+
         // Enhanced Matrix Rain Effect with glowing characters
         function createMatrixRain() {
             const matrixContainer = document.querySelector('.matrix-rain');
@@ -908,7 +1022,8 @@
             }
         }
 
-        // Initialize matrix rain
+        // Initialize effects
+        createBinaryMatrix();
         createMatrixRain();
 
         // Smooth scrolling
