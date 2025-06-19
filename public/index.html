@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Artine Technologies - Applied Intelligence. Real Impact.</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600&family=Electrolize:wght@400&family=Audiowide:wght@400&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -11,12 +12,82 @@
             box-sizing: border-box;
         }
 
+        :root {
+            --primary-purple: #6b46c1;
+            --deep-purple: #4c1d95;
+            --cosmic-blue: #1e40af;
+            --bright-blue: #3b82f6;
+            --accent-cyan: #06b6d4;
+            --neon-pink: #ec4899;
+            --dark-space: #0f0a1e;
+            --darker-space: #0a0612;
+            --particle-glow: #8b5cf6;
+            --text-primary: #ffffff;
+            --text-secondary: #c4b5fd;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
-            font-family: 'Arial', sans-serif;
-            background: linear-gradient(135deg, #0f0a1e 0%, #1e1a3a 25%, #2d1b69 50%, #1e40af 75%, #0f0a1e 100%);
-            color: white;
-            min-height: 100vh;
+            font-family: 'Space Grotesk', 'Electrolize', sans-serif;
+            background: var(--dark-space);
+            color: var(--text-primary);
             line-height: 1.6;
+            overflow-x: hidden;
+            font-weight: 400;
+            letter-spacing: 1px;
+        }
+
+        /* Enhanced Cosmic Background Animation */
+        .cosmic-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            background: linear-gradient(135deg, 
+                #0f0a1e 0%, 
+                #1e1a3a 25%, 
+                #2d1b69 50%, 
+                #1e40af 75%, 
+                #0f0a1e 100%);
+            animation: cosmicShift 20s ease-in-out infinite;
+        }
+
+        @keyframes cosmicShift {
+            0%, 100% { 
+                background: linear-gradient(135deg, #0f0a1e 0%, #1e1a3a 25%, #2d1b69 50%, #1e40af 75%, #0f0a1e 100%);
+            }
+            33% { 
+                background: linear-gradient(135deg, #1a0f2e 0%, #2a1e4a 25%, #3d2b79 50%, #2e50cf 75%, #1a0f2e 100%);
+            }
+            66% { 
+                background: linear-gradient(135deg, #0a0612 0%, #1e1a3a 25%, #2d1b69 50%, #1e40af 75%, #0a0612 100%);
+            }
+        }
+
+        /* Circuit Board Pattern Animation */
+        .circuit-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.05;
+            background-image: 
+                linear-gradient(90deg, transparent 98%, rgba(139, 92, 246, 0.3) 100%),
+                linear-gradient(0deg, transparent 98%, rgba(59, 130, 246, 0.3) 100%);
+            background-size: 50px 50px;
+            animation: circuitScan 12s linear infinite;
+        }
+
+        @keyframes circuitScan {
+            0% { transform: translateX(-100px) translateY(-100px); }
+            100% { transform: translateX(100px) translateY(100px); }
         }
 
         /* Matrix Rain Effect */
@@ -36,13 +107,24 @@
             top: -100%;
             width: 20px;
             color: #00b4ff;
-            font-family: monospace;
+            font-family: 'JetBrains Mono', monospace;
             font-size: 14px;
             line-height: 14px;
             text-shadow: 0 0 5px #00b4ff;
             white-space: nowrap;
             animation: matrixFall linear infinite;
             opacity: 0.7;
+        }
+
+        .matrix-column .glow-char {
+            color: #ffffff;
+            text-shadow: 0 0 10px #00b4ff, 0 0 20px #00b4ff, 0 0 30px #00b4ff;
+            animation: matrixGlow 0.1s ease-in-out infinite alternate;
+        }
+
+        .matrix-column .fade-char {
+            opacity: 0.3;
+            color: #0066cc;
         }
 
         @keyframes matrixFall {
@@ -52,49 +134,118 @@
             100% { transform: translateY(100vh); opacity: 0; }
         }
 
+        @keyframes matrixGlow {
+            0% { text-shadow: 0 0 5px #00b4ff, 0 0 10px #00b4ff, 0 0 15px #00b4ff; }
+            100% { text-shadow: 0 0 10px #00b4ff, 0 0 20px #00b4ff, 0 0 30px #00b4ff; }
+        }
+
+        /* Quantum Dots */
+        .quantum-dots {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .quantum-dot {
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            background: rgba(139, 92, 246, 0.3);
+            border-radius: 50%;
+            animation: quantumFloat 12s ease-in-out infinite;
+        }
+
+        .dot-1 { top: 20%; left: 15%; animation-delay: 0s; }
+        .dot-2 { top: 60%; left: 25%; animation-delay: 2s; }
+        .dot-3 { top: 30%; right: 20%; animation-delay: 4s; }
+        .dot-4 { bottom: 40%; left: 35%; animation-delay: 6s; }
+        .dot-5 { bottom: 20%; right: 30%; animation-delay: 8s; }
+        .dot-6 { top: 70%; right: 45%; animation-delay: 10s; }
+
+        @keyframes quantumFloat {
+            0%, 100% { 
+                transform: translateY(0px) scale(1);
+                opacity: 0.3;
+                box-shadow: 0 0 10px rgba(139, 92, 246, 0.2);
+            }
+            25% { 
+                transform: translateY(-20px) scale(1.2);
+                opacity: 0.6;
+                box-shadow: 0 0 20px rgba(139, 92, 246, 0.4);
+            }
+            50% { 
+                transform: translateY(-10px) scale(0.8);
+                opacity: 0.4;
+                box-shadow: 0 0 15px rgba(59, 130, 246, 0.3);
+            }
+            75% { 
+                transform: translateY(-30px) scale(1.1);
+                opacity: 0.7;
+                box-shadow: 0 0 25px rgba(6, 182, 212, 0.3);
+            }
+        }
+
         /* Navigation */
         nav {
             position: fixed;
             top: 0;
             width: 100%;
-            padding: 20px 5%;
+            padding: 25px 5%;
             background: rgba(15, 10, 30, 0.9);
             backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(139, 92, 246, 0.3);
             z-index: 1000;
+            transition: all 0.3s ease;
         }
 
         .nav-container {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
         }
 
         .logo {
-            font-size: 28px;
-            font-weight: bold;
-            color: #00b4ff;
+            font-family: 'Orbitron', monospace;
+            font-size: 32px;
+            font-weight: 900;
+            background: linear-gradient(45deg, var(--particle-glow), var(--bright-blue), var(--accent-cyan));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
             text-decoration: none;
+            letter-spacing: 4px;
+            filter: drop-shadow(0 0 10px rgba(139, 92, 246, 0.5));
         }
 
         .nav-menu {
             display: flex;
             list-style: none;
-            gap: 30px;
+            gap: 40px;
         }
 
         .nav-menu a {
-            color: #c4b5fd;
+            font-family: 'Electrolize', monospace;
+            color: var(--text-secondary);
             text-decoration: none;
+            font-weight: 400;
+            transition: all 0.3s ease;
+            position: relative;
             padding: 8px 16px;
             border-radius: 20px;
-            transition: all 0.3s ease;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-size: 14px;
         }
 
         .nav-menu a:hover {
-            color: white;
-            background: rgba(0, 180, 255, 0.2);
+            color: var(--text-primary);
+            background: rgba(139, 92, 246, 0.2);
+            box-shadow: 0 0 20px rgba(139, 92, 246, 0.3);
         }
 
         /* Hero Section */
@@ -105,133 +256,307 @@
             justify-content: center;
             text-align: center;
             padding: 0 5%;
+            position: relative;
+            background: linear-gradient(rgba(15, 10, 30, 0.7), rgba(15, 10, 30, 0.8)), 
+                        url('https://images.unsplash.com/photo-1518709268805-4e9042af2176?ixlib=rb-4.0.3&auto=format&fit=crop&w=2340&q=80') center/cover;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 50% 50%, 
+                rgba(139, 92, 246, 0.2) 0%, 
+                rgba(59, 130, 246, 0.1) 50%, 
+                transparent 100%);
+            z-index: 1;
         }
 
         .hero-content {
-            max-width: 800px;
+            max-width: 900px;
             z-index: 2;
         }
 
         .hero h1 {
-            font-size: clamp(3rem, 8vw, 6rem);
+            font-family: 'Orbitron', sans-serif;
+            font-size: clamp(4rem, 10vw, 8rem);
             font-weight: 900;
             margin-bottom: 20px;
-            background: linear-gradient(45deg, #00b4ff, #3b82f6, #06b6d4);
+            background: linear-gradient(45deg, 
+                var(--particle-glow), 
+                var(--bright-blue), 
+                var(--accent-cyan), 
+                var(--neon-pink));
+            background-size: 300% 300%;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .company-name {
-            font-size: clamp(1.5rem, 4vw, 2.5rem);
-            margin-bottom: 20px;
-            text-transform: uppercase;
+            animation: cosmic-glow 4s ease-in-out infinite;
+            filter: drop-shadow(0 0 30px rgba(139, 92, 246, 0.6));
             letter-spacing: 4px;
         }
 
+        @keyframes cosmic-glow {
+            0%, 100% { 
+                background-position: 0% 50%;
+                filter: drop-shadow(0 0 30px rgba(139, 92, 246, 0.6));
+            }
+            50% { 
+                background-position: 100% 50%;
+                filter: drop-shadow(0 0 50px rgba(59, 130, 246, 0.8));
+            }
+        }
+
+        .company-name {
+            font-family: 'Audiowide', monospace;
+            font-size: clamp(1.8rem, 5vw, 3rem);
+            font-weight: 400;
+            margin-bottom: 20px;
+            letter-spacing: 8px;
+            text-transform: uppercase;
+            color: var(--text-primary);
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+        }
+
         .tagline {
-            font-size: clamp(1rem, 2.5vw, 1.5rem);
-            color: #c4b5fd;
-            margin-bottom: 40px;
+            font-family: 'Space Grotesk', monospace;
+            font-size: clamp(1.2rem, 3vw, 1.8rem);
+            color: var(--text-secondary);
+            margin-bottom: 50px;
             font-style: italic;
+            font-weight: 300;
+            text-shadow: 0 0 15px rgba(196, 181, 253, 0.6);
+            letter-spacing: 2px;
         }
 
         .cta-button {
+            font-family: 'Electrolize', monospace;
             display: inline-block;
-            padding: 15px 35px;
-            background: linear-gradient(45deg, #00b4ff, #3b82f6);
-            color: white;
+            padding: 18px 45px;
+            background: linear-gradient(45deg, var(--particle-glow), var(--bright-blue));
+            color: var(--text-primary);
             text-decoration: none;
             border-radius: 50px;
-            font-weight: bold;
+            font-weight: 400;
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 4px;
             transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 0 30px rgba(139, 92, 246, 0.4);
+            font-size: 15px;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .cta-button:hover::before {
+            left: 100%;
         }
 
         .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(0, 180, 255, 0.4);
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 15px 40px rgba(139, 92, 246, 0.6);
         }
 
         /* Sections */
         section {
-            padding: 100px 5%;
-            max-width: 1200px;
+            padding: 120px 5%;
+            max-width: 1400px;
             margin: 0 auto;
+            position: relative;
         }
 
         .section-title {
-            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-family: 'Orbitron', monospace;
+            font-size: clamp(2.5rem, 6vw, 4rem);
             font-weight: 900;
             text-align: center;
-            margin-bottom: 60px;
-            background: linear-gradient(45deg, #00b4ff, #3b82f6);
+            margin-bottom: 80px;
+            background: linear-gradient(45deg, var(--particle-glow), var(--bright-blue));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            background-clip: text;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            position: relative;
+            filter: drop-shadow(0 0 20px rgba(139, 92, 246, 0.5));
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--particle-glow), var(--bright-blue), var(--accent-cyan));
+            border-radius: 2px;
         }
 
         /* About Section */
         .about-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 60px;
+            gap: 80px;
             align-items: center;
         }
 
         .about-text {
-            font-size: 18px;
+            font-family: 'Space Grotesk', monospace;
+            font-size: 20px;
             line-height: 1.8;
-            color: #c4b5fd;
+            color: var(--text-secondary);
+            font-weight: 400;
+            letter-spacing: 0.8px;
         }
 
         .about-text p {
-            margin-bottom: 20px;
+            margin-bottom: 25px;
         }
 
         .highlight {
-            color: #00b4ff;
+            color: var(--particle-glow);
             font-weight: 600;
+            text-shadow: 0 0 10px rgba(139, 92, 246, 0.6);
         }
 
         .about-visual {
-            height: 300px;
-            background: linear-gradient(135deg, rgba(0, 180, 255, 0.1) 0%, rgba(59, 130, 246, 0.05) 100%);
-            border-radius: 20px;
+            position: relative;
+            height: 400px;
+            background: linear-gradient(135deg, 
+                rgba(139, 92, 246, 0.1) 0%, 
+                rgba(59, 130, 246, 0.05) 100%);
+            border-radius: 25px;
+            border: 1px solid rgba(139, 92, 246, 0.3);
+            overflow: hidden;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 60px;
+        }
+
+        .about-visual::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://images.unsplash.com/photo-1677442136019-21780ecad995?ixlib=rb-4.0.3&auto=format&fit=crop&w=2370&q=80') center/cover;
+            opacity: 0.6;
+            filter: hue-rotate(240deg) saturate(1.5);
+        }
+
+        .about-visual::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at center, 
+                rgba(139, 92, 246, 0.3) 0%, 
+                transparent 70%);
+        }
+
+        .ai-icon {
+            position: relative;
+            z-index: 2;
+            font-size: 80px;
+            color: var(--particle-glow);
+            text-shadow: 0 0 30px rgba(139, 92, 246, 0.8);
+            animation: pulse-tech 3s ease-in-out infinite;
+        }
+
+        @keyframes pulse-tech {
+            0%, 100% { 
+                transform: scale(1);
+                text-shadow: 0 0 30px rgba(139, 92, 246, 0.8);
+            }
+            50% { 
+                transform: scale(1.1);
+                text-shadow: 0 0 50px rgba(139, 92, 246, 1);
+            }
         }
 
         /* Services Grid */
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 30px;
-            margin-top: 60px;
+            grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+            gap: 40px;
+            margin-top: 80px;
         }
 
         .service-card {
-            background: rgba(0, 180, 255, 0.1);
-            padding: 30px;
-            border-radius: 20px;
-            border: 1px solid rgba(0, 180, 255, 0.3);
-            transition: all 0.3s ease;
+            background: linear-gradient(135deg, 
+                rgba(139, 92, 246, 0.08) 0%, 
+                rgba(59, 130, 246, 0.04) 100%);
+            padding: 45px;
+            border-radius: 25px;
+            border: 1px solid rgba(139, 92, 246, 0.3);
+            backdrop-filter: blur(20px);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 0 30px rgba(139, 92, 246, 0.1);
+            min-height: 300px;
+            animation: cardPulse 6s ease-in-out infinite;
+        }
+
+        @keyframes cardPulse {
+            0%, 100% {
+                transform: translateY(0px);
+                box-shadow: 0 0 30px rgba(139, 92, 246, 0.1);
+            }
+            50% {
+                transform: translateY(-3px);
+                box-shadow: 0 5px 35px rgba(139, 92, 246, 0.15);
+            }
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--particle-glow), var(--bright-blue), var(--accent-cyan));
+            transition: left 0.6s ease;
+        }
+
+        .service-card:hover::before {
+            left: 100%;
         }
 
         .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0, 180, 255, 0.2);
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 25px 60px rgba(139, 92, 246, 0.3);
+            border-color: var(--particle-glow);
+            background: linear-gradient(135deg, 
+                rgba(139, 92, 246, 0.15) 0%, 
+                rgba(59, 130, 246, 0.08) 100%);
         }
 
         .service-header {
-            font-size: 20px;
-            font-weight: bold;
-            color: #00b4ff;
-            margin-bottom: 15px;
+            font-family: 'Audiowide', monospace;
+            font-size: 22px;
+            font-weight: 400;
+            color: var(--particle-glow);
+            margin-bottom: 25px;
             text-transform: uppercase;
+            letter-spacing: 3px;
+            text-shadow: 0 0 10px rgba(139, 92, 246, 0.6);
         }
 
         .service-points {
@@ -239,61 +564,98 @@
         }
 
         .service-points li {
-            margin-bottom: 10px;
-            padding-left: 20px;
+            font-family: 'Space Grotesk', monospace;
+            margin-bottom: 18px;
+            padding-left: 30px;
             position: relative;
-            color: #c4b5fd;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            font-size: 16px;
+            font-weight: 400;
+            letter-spacing: 0.8px;
         }
 
         .service-points li::before {
             content: "→";
             position: absolute;
             left: 0;
-            color: #00b4ff;
+            color: var(--bright-blue);
             font-weight: bold;
+            font-size: 18px;
         }
 
         /* Contact Section */
         .contact-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 60px;
+            gap: 80px;
             align-items: center;
         }
 
         .contact-info {
-            background: rgba(0, 180, 255, 0.1);
-            padding: 40px;
-            border-radius: 20px;
-            border: 1px solid rgba(0, 180, 255, 0.3);
+            background: linear-gradient(135deg, 
+                rgba(139, 92, 246, 0.1) 0%, 
+                rgba(59, 130, 246, 0.05) 100%);
+            padding: 60px;
+            border-radius: 25px;
+            border: 1px solid rgba(139, 92, 246, 0.3);
+            backdrop-filter: blur(20px);
+            box-shadow: 0 0 40px rgba(139, 92, 246, 0.2);
         }
 
         .contact-info h3 {
-            font-size: 24px;
-            color: #00b4ff;
-            margin-bottom: 30px;
+            font-family: 'Audiowide', monospace;
+            font-size: 32px;
+            color: var(--particle-glow);
+            margin-bottom: 40px;
             text-transform: uppercase;
+            letter-spacing: 4px;
+            text-shadow: 0 0 15px rgba(139, 92, 246, 0.6);
         }
 
         .contact-item {
+            font-family: 'Electrolize', monospace;
             display: flex;
             align-items: center;
-            margin-bottom: 20px;
-            font-size: 16px;
-            color: #c4b5fd;
+            margin-bottom: 25px;
+            font-size: 20px;
+            color: var(--text-secondary);
+            transition: all 0.3s ease;
+            padding: 15px;
+            border-radius: 15px;
+            font-weight: 400;
+            letter-spacing: 1.5px;
+        }
+
+        .contact-item:hover {
+            color: var(--particle-glow);
+            transform: translateX(15px);
+            background: rgba(139, 92, 246, 0.1);
+            text-shadow: 0 0 10px rgba(139, 92, 246, 0.6);
         }
 
         .contact-item span {
-            margin-right: 15px;
-            font-size: 20px;
+            margin-right: 20px;
+            font-size: 24px;
         }
 
         /* Footer */
         footer {
-            background: rgba(15, 10, 30, 0.9);
-            padding: 40px 5%;
+            background: linear-gradient(135deg, var(--darker-space) 0%, var(--dark-space) 100%);
+            padding: 60px 5%;
             text-align: center;
-            color: #c4b5fd;
+            border-top: 1px solid rgba(139, 92, 246, 0.3);
+        }
+
+        .footer-content {
+            font-family: 'Electrolize', monospace;
+            max-width: 1400px;
+            margin: 0 auto;
+            color: var(--text-secondary);
+            font-size: 16px;
+            text-shadow: 0 0 10px rgba(196, 181, 253, 0.4);
+            font-weight: 400;
+            letter-spacing: 2px;
         }
 
         /* Mobile Responsiveness */
@@ -305,7 +667,7 @@
             .about-grid,
             .contact-grid {
                 grid-template-columns: 1fr;
-                gap: 40px;
+                gap: 50px;
             }
 
             .services-grid {
@@ -313,19 +675,55 @@
             }
 
             section {
-                padding: 60px 5%;
+                padding: 80px 5%;
             }
+
+            .service-card {
+                padding: 35px;
+            }
+
+            .hero h1 {
+                letter-spacing: 2px;
+            }
+        }
+
+        /* Scroll animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
     </style>
 </head>
 <body>
+    <!-- Enhanced Cosmic Background -->
+    <div class="cosmic-bg"></div>
+    
+    <!-- Circuit Board Pattern -->
+    <div class="circuit-overlay"></div>
+    
     <!-- Matrix Rain Effect -->
     <div class="matrix-rain"></div>
+    
+    <!-- Quantum Dots -->
+    <div class="quantum-dots">
+        <div class="quantum-dot dot-1"></div>
+        <div class="quantum-dot dot-2"></div>
+        <div class="quantum-dot dot-3"></div>
+        <div class="quantum-dot dot-4"></div>
+        <div class="quantum-dot dot-5"></div>
+        <div class="quantum-dot dot-6"></div>
+    </div>
 
     <!-- Navigation -->
     <nav>
         <div class="nav-container">
-            <a href="#home" class="logo">Artine</a>
+            <a href="#home" class="logo">&lt;/&gt; Artine</a>
             <ul class="nav-menu">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
@@ -337,8 +735,8 @@
 
     <!-- Hero Section -->
     <section id="home" class="hero">
-        <div class="hero-content">
-            <h1>Artine</h1>
+        <div class="hero-content fade-in">
+            <h1>&lt;/&gt; Artine</h1>
             <div class="company-name">Artine Technologies LLP</div>
             <p class="tagline">"Applied Intelligence. Real Impact."</p>
             <a href="#about" class="cta-button">Explore Our Solutions</a>
@@ -347,25 +745,25 @@
 
     <!-- About Section -->
     <section id="about">
-        <h2 class="section-title">Who We Are</h2>
+        <h2 class="section-title fade-in">Who We Are</h2>
         <div class="about-grid">
-            <div class="about-text">
+            <div class="about-text fade-in">
                 <p>Artine Technologies LLP is not your average AI company. We're the <span class="highlight">brainy rebels building bold tech</span> straight from the sunny streets of Goa.</p>
                 <p>We design systems that are not just intelligent. They're <span class="highlight">ethical, efficient, and explainable</span>. Whether we're streamlining government workflows, making tourism smarter, or taking the pain out of policy parsing, we believe AI should genuinely help people.</p>
                 <p><span class="highlight">Founded by Janhavi Sawal</span>, Artine brings together deep research, real-world hustle, and a whole lot of empathy.</p>
                 <p>We are the new architects of applied intelligence. We are <span class="highlight">ARTINE</span>. And yes, we make machines mean something.</p>
             </div>
-            <div class="about-visual">
-                🧠
+            <div class="about-visual fade-in">
+                <div class="ai-icon">🧠</div>
             </div>
         </div>
     </section>
 
     <!-- Services Section -->
     <section id="services">
-        <h2 class="section-title">Our Core Solutions</h2>
+        <h2 class="section-title fade-in">Our Core Solutions</h2>
         <div class="services-grid">
-            <div class="service-card">
+            <div class="service-card fade-in">
                 <div class="service-header">🧠 AI Assistants & Autonomous Agents</div>
                 <ul class="service-points">
                     <li>Multi-agent collaboration and negotiation for complex workflows</li>
@@ -374,7 +772,7 @@
                 </ul>
             </div>
 
-            <div class="service-card">
+            <div class="service-card fade-in">
                 <div class="service-header">📸 Computer Vision Systems</div>
                 <ul class="service-points">
                     <li>Retail shelf monitoring and inventory management</li>
@@ -383,7 +781,7 @@
                 </ul>
             </div>
 
-            <div class="service-card">
+            <div class="service-card fade-in">
                 <div class="service-header">🔍 SEO & Lead Generation Agents</div>
                 <ul class="service-points">
                     <li>AI-driven keyword clustering and content gap analysis</li>
@@ -392,7 +790,7 @@
                 </ul>
             </div>
 
-            <div class="service-card">
+            <div class="service-card fade-in">
                 <div class="service-header">🗃️ Smart Document & Regulation Parsing</div>
                 <ul class="service-points">
                     <li>Hierarchical parsing with tag trees and clause interlinking</li>
@@ -401,7 +799,7 @@
                 </ul>
             </div>
 
-            <div class="service-card">
+            <div class="service-card fade-in">
                 <div class="service-header">🔐 Blockchain Integration</div>
                 <ul class="service-points">
                     <li>Full lifecycle from on-chain notarization to automated workflows</li>
@@ -410,7 +808,7 @@
                 </ul>
             </div>
 
-            <div class="service-card">
+            <div class="service-card fade-in">
                 <div class="service-header">🌍 Smart Tourism & Governance</div>
                 <ul class="service-points">
                     <li>Visitor flow modeling using camera vision and ticket scans</li>
@@ -423,9 +821,9 @@
 
     <!-- Contact Section -->
     <section id="contact">
-        <h2 class="section-title">Let's Build Together</h2>
+        <h2 class="section-title fade-in">Let's Build Together</h2>
         <div class="contact-grid">
-            <div class="contact-info">
+            <div class="contact-info fade-in">
                 <h3>Get In Touch</h3>
                 <div class="contact-item">
                     <span>📧</span>
@@ -440,9 +838,9 @@
                     <span>+91-9665743027</span>
                 </div>
             </div>
-            <div class="contact-info">
+            <div class="contact-info fade-in">
                 <h3>Ready to Innovate?</h3>
-                <p style="color: #c4b5fd; margin-bottom: 20px;">Transform your business with our cutting-edge AI solutions. From autonomous agents to blockchain integration, we're here to turn your vision into reality.</p>
+                <p style="color: var(--text-secondary); margin-bottom: 30px;">Transform your business with our cutting-edge AI solutions. From autonomous agents to blockchain integration, we're here to turn your vision into reality.</p>
                 <a href="mailto:artinetechnologies@gmail.com" class="cta-button">Start Your Project</a>
             </div>
         </div>
@@ -450,14 +848,18 @@
 
     <!-- Footer -->
     <footer>
-        <p>&copy; 2025 Artine Technologies LLP. All rights reserved.</p>
+        <div class="footer-content">
+            <p>&copy; 2025 Artine Technologies LLP. All rights reserved.</p>
+        </div>
     </footer>
 
     <script>
-        // Create Matrix Rain Effect
+        // Enhanced Matrix Rain Effect with glowing characters
         function createMatrixRain() {
             const matrixContainer = document.querySelector('.matrix-rain');
-            const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%^&*(){}[]';
+            const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%^&*(){}[]|\\:";\'<>?,./`~';
+            const techSymbols = '→←↑↓⟲⟳⊕⊗⊙⊚⊛⊜⊝⊞⊟⊠⊡⊢⊣⊤⊥⊦⊧⊨⊩⊪⊫⊬⊭⊮⊯⊰⊱⊲⊳⊴⊵⊶⊷⊸⊹⊺⊻⊼⊽⊾⊿⋀⋁⋂⋃';
+            const allChars = characters + techSymbols;
             
             const screenWidth = window.innerWidth;
             const columns = Math.floor(screenWidth / 20);
@@ -473,8 +875,17 @@
                 const columnHeight = Math.floor(Math.random() * 20) + 10;
                 
                 for (let j = 0; j < columnHeight; j++) {
-                    const char = characters[Math.floor(Math.random() * characters.length)];
-                    characterString += char;
+                    const char = allChars[Math.floor(Math.random() * allChars.length)];
+                    const rand = Math.random();
+                    
+                    if (rand < 0.05) {
+                        characterString += `<span class="glow-char">${char}</span>`;
+                    } else if (rand < 0.3) {
+                        characterString += `<span class="fade-char">${char}</span>`;
+                    } else {
+                        characterString += char;
+                    }
+                    
                     if (j < columnHeight - 1) {
                         characterString += '<br>';
                     }
@@ -482,6 +893,18 @@
                 
                 column.innerHTML = characterString;
                 matrixContainer.appendChild(column);
+                
+                // Randomly update characters
+                setInterval(() => {
+                    if (Math.random() < 0.1) {
+                        const spans = column.querySelectorAll('span');
+                        spans.forEach(span => {
+                            if (Math.random() < 0.3) {
+                                span.textContent = allChars[Math.floor(Math.random() * allChars.length)];
+                            }
+                        });
+                    }
+                }, 100);
             }
         }
 
@@ -496,6 +919,36 @@
                     behavior: 'smooth'
                 });
             });
+        });
+
+        // Fade in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Navigation background on scroll
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 100) {
+                nav.style.background = 'rgba(15, 10, 30, 0.98)';
+                nav.style.boxShadow = '0 0 30px rgba(139, 92, 246, 0.3)';
+            } else {
+                nav.style.background = 'rgba(15, 10, 30, 0.9)';
+                nav.style.boxShadow = 'none';
+            }
         });
     </script>
 </body>
