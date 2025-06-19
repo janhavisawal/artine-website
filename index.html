@@ -150,11 +150,11 @@
             position: absolute;
             top: -100%;
             width: 20px;
-            color: #00ff41;
+            color: #00b4ff;
             font-family: 'JetBrains Mono', monospace;
             font-size: 14px;
             line-height: 14px;
-            text-shadow: 0 0 5px #00ff41;
+            text-shadow: 0 0 5px #00b4ff;
             white-space: nowrap;
             animation: matrixFall linear infinite;
             opacity: 0.7;
@@ -162,13 +162,13 @@
 
         .matrix-column .glow-char {
             color: #ffffff;
-            text-shadow: 0 0 10px #00ff41, 0 0 20px #00ff41, 0 0 30px #00ff41;
+            text-shadow: 0 0 10px #00b4ff, 0 0 20px #00b4ff, 0 0 30px #00b4ff;
             animation: matrixGlow 0.1s ease-in-out infinite alternate;
         }
 
         .matrix-column .fade-char {
             opacity: 0.3;
-            color: #008f11;
+            color: #0066cc;
         }
 
         @keyframes matrixFall {
@@ -190,10 +190,10 @@
 
         @keyframes matrixGlow {
             0% {
-                text-shadow: 0 0 5px #00ff41, 0 0 10px #00ff41, 0 0 15px #00ff41;
+                text-shadow: 0 0 5px #00b4ff, 0 0 10px #00b4ff, 0 0 15px #00b4ff;
             }
             100% {
-                text-shadow: 0 0 10px #00ff41, 0 0 20px #00ff41, 0 0 30px #00ff41;
+                text-shadow: 0 0 10px #00b4ff, 0 0 20px #00b4ff, 0 0 30px #00b4ff;
             }
         }
 
@@ -272,9 +272,9 @@
             height: 100%;
             background: linear-gradient(90deg, 
                 transparent 0%, 
-                rgba(0, 255, 65, 0.03) 25%,
+                rgba(0, 180, 255, 0.03) 25%,
                 transparent 50%,
-                rgba(0, 255, 65, 0.03) 75%,
+                rgba(0, 180, 255, 0.03) 75%,
                 transparent 100%
             );
             animation: glitchSweep 8s ease-in-out infinite;
@@ -283,9 +283,9 @@
         .glitch-layer:nth-child(2) {
             background: linear-gradient(45deg, 
                 transparent 0%, 
-                rgba(255, 0, 65, 0.02) 25%,
+                rgba(0, 102, 204, 0.02) 25%,
                 transparent 50%,
-                rgba(255, 0, 65, 0.02) 75%,
+                rgba(0, 102, 204, 0.02) 75%,
                 transparent 100%
             );
             animation-delay: 2s;
@@ -295,9 +295,9 @@
         .glitch-layer:nth-child(3) {
             background: linear-gradient(135deg, 
                 transparent 0%, 
-                rgba(65, 255, 0, 0.02) 25%,
+                rgba(59, 130, 246, 0.02) 25%,
                 transparent 50%,
-                rgba(65, 255, 0, 0.02) 75%,
+                rgba(59, 130, 246, 0.02) 75%,
                 transparent 100%
             );
             animation-delay: 4s;
