@@ -1,0 +1,39 @@
+{
+  "name": "artine-technologies-website",
+  "version": "1.0.0",
+  "description": "Artine Technologies LLP - Applied Intelligence. Real Impact. A cutting-edge AI company website with futuristic animations and matrix effects.",
+  "main": "index.html",
+  "scripts": {
+    "dev": "vercel dev",
+    "build": "echo 'Static site - no build required'",
+    "deploy": "vercel --prod",
+    "preview": "vercel"
+  },
+  "keywords": [
+    "ai",
+    "artificial-intelligence",
+    "machine-learning",
+    "blockchain",
+    "computer-vision",
+    "nlp",
+    "autonomous-agents",
+    "artine-technologies"
+  ],
+  "author": {
+    "name": "Artine Technologies LLP",
+    "email": "artinetechnologies@gmail.com",
+    "url": "https://www.artine.in"
+  },
+  "license": "Proprietary",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/artine-technologies/website.git"
+  },
+  "homepage": "https://www.artine.in",
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "devDependencies": {
+    "vercel": "^32.0.0"
+  }
+}
